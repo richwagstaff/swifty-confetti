@@ -51,7 +51,10 @@ let configuration = ConfettiConfig(
 )
 ```
 
-Parameters:
-`colors`: The colors of the confetti.
-`images`: The images of the confetti. Note: The image will be shown as-is, without any color modification.
-`shapes`: The default confetti shapes.
+### Configuration Parameters
+
+`colors` - The colors of the confetti.
+
+`images` - The images of the confetti. Note: The image will be shown as-is, without any color modification.
+
+`shapes` - The default confetti shapes.
