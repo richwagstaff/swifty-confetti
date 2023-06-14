@@ -1,4 +1,3 @@
-
 #if canImport(UIKit) && canImport(QuartzCore) && canImport(CoreGraphics)
 import QuartzCore
 import UIKit
@@ -45,7 +44,7 @@ open class ConfettiGenerator {
         let cell = CAEmitterCell()
 
         cell.beginTime = CACurrentMediaTime()
-        cell.birthRate = 12 * config.intensity
+        cell.birthRate = 12
         cell.contents = contents
         cell.emissionRange = .pi
         cell.lifetime = 14
