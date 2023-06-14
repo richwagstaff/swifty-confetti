@@ -47,7 +47,7 @@ You can configure the confetti with a `ConfettiConfig` object.
 let configuration = ConfettiConfig(
     colors: [.red, .green, .blue],
     images: [UIImage(named: "MyImage"],
-    shapes: [.circle, .triangle, .square, .arc, .square]
+    shapes: [.circle, .triangle, .rectangle, .arc, .star]
 )
 ```
 
