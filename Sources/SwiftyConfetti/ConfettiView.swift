@@ -33,8 +33,8 @@ public class ConfettiView: UIView {
     }
 
     private func sharedInit() {
-        emitter.birthRate = 0
         reloadEmitter()
+        emitter.birthRate = 0
     }
 
     override public func layoutSubviews() {
@@ -82,7 +82,7 @@ public class ConfettiView: UIView {
     public func startConfetti(
         rate: Float = 1,
         delay: TimeInterval = 0,
-        stopAfter: TimeInterval = 5
+        stopAfter: TimeInterval = 3
     ) {
         stopConfetti()
 

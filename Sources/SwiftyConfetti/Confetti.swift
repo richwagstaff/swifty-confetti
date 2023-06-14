@@ -4,16 +4,22 @@ import SwiftUI
 
 public struct Confetti: UIViewRepresentable {
     var count: Int
+    var config = ConfettiConfig()
     var rate: Float = 1
     var delay: TimeInterval
     var duration: TimeInterval
-    var intensity: Float = 1
 
-    public init(count: Int, rate: Float = 1, delay: TimeInterval, duration: TimeInterval, intensity: Float = 1) {
+    public init(
+        count: Int,
+        config: ConfettiConfig = ConfettiConfig(),
+        rate: Float = 1,
+        delay: TimeInterval,
+        duration: TimeInterval
+    ) {
         self.count = count
         self.delay = delay
         self.duration = duration
-        self.intensity = intensity
+        self.config = config
         self.rate = rate
     }
 
@@ -22,24 +28,13 @@ public struct Confetti: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: ConfettiView, context: Context) {
-        // uiView.intensity = intensity
-        // uiView.shapes = ConfettiShape.allCases
-        // uiView.images = []
-        // uiView.colors = [.red, .green, .blue]
+        uiView.config = config
+
         uiView.startConfetti(
             rate: rate,
             delay: delay,
             stopAfter: duration
         )
-        /*
-         if drop {
-             if !uiView.isEmitting {
-                 uiView.start(rate: rate, delay: delay, stopAfter: duration)
-             }
-         }
-         else {
-             uiView.stop()
-         }*/
     }
 }
 

@@ -45,15 +45,15 @@ open class ConfettiGenerator {
         let cell = CAEmitterCell()
 
         cell.beginTime = CACurrentMediaTime()
-        cell.birthRate = 14 * config.intensity
+        cell.birthRate = 12 * config.intensity
         cell.contents = contents
         cell.emissionRange = .pi
         cell.lifetime = 14
         cell.spin = 4
         cell.spinRange = 8
-        cell.velocity = 300
+        cell.velocity = 200
         cell.velocityRange = 100
-        cell.yAcceleration = 150
+        cell.yAcceleration = 100
         cell.scale = 1 / UIScreen.main.scale
         cell.scaleRange = 0.3
 
