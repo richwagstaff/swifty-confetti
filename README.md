@@ -51,6 +51,27 @@ let configuration = ConfettiConfig(
 )
 ```
 
+Then pass it to the confetti view if using SwiftUI.
+
+```
+Confetti(
+    count: confettiCount,
+    config: configuration,
+    rate: 0.3,
+    delay: 0,
+    duration: 5
+)
+```
+
+Or pass it to the confetti view if using UIKit.
+
+```
+let confetti = ConfettiView(frame: view.bounds)
+confetti.config = configuration
+confetti.startConfetti()
+```
+
+
 ### Configuration Parameters
 
 `colors` - The colors of the confetti.
