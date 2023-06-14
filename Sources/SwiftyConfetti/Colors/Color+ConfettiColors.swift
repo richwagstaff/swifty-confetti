@@ -1,6 +1,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+@available(macOS 10.15, *)
 public extension Color {
     static var confettiYellow: Color {
         ConfettiColor.yellow.color

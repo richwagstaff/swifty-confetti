@@ -1,59 +1,51 @@
-//
-//  File.swift
-//
-//
-//  Created by Richard Wagstaff on 13/06/2023.
-//
 
 #if canImport(UIKit) && canImport(QuartzCore) && canImport(CoreGraphics)
 import QuartzCore
 import UIKit
 
-enum ConfettiCellGenerator {
-    static func cells(
-        images: [UIImage],
-        shapes: [ConfettiShape],
-        colors: [UIColor],
-        intensity: Float
-    ) -> [CAEmitterCell] {
+open class ConfettiGenerator {
+    public var config: ConfettiConfig
+
+    public init(config: ConfettiConfig) {
+        self.config = config
+    }
+
+    /// Generates an array of confetti emitter cells.
+    /// - Returns: Array of emitter cells
+    open func generateCells() -> [CAEmitterCell] {
         var cells: [CAEmitterCell] = []
 
-        for shape in shapes {
-            for color in colors {
+        for shape in config.shapes {
+            for color in config.colors {
                 let image = shape.image(
                     size: CGSize(width: 32, height: 32),
                     color: color
                 )
                 guard let cgImage = image.cgImage else { continue }
-
-                let cell = createCell(
-                    contents: cgImage,
-                    intensity: intensity
-                )
+                let cell = generateCell(contents: cgImage)
                 cells.append(cell)
             }
         }
 
-        for image in images {
+        for image in config.images {
             guard let cgImage = image.cgImage else { continue }
-            let cell = createCell(
-                contents: cgImage,
-                intensity: intensity
-            )
+            let cell = generateCell(contents: cgImage)
             cells.append(cell)
         }
 
         return cells
     }
 
-    static func createCell(
-        contents: CGImage,
-        intensity: Float
+    /// Create the cell for the content.
+    /// - Parameter contents: The contents.
+    /// - Returns: The emitter cell.
+    open func generateCell(
+        contents: CGImage
     ) -> CAEmitterCell {
         let cell = CAEmitterCell()
 
         cell.beginTime = CACurrentMediaTime()
-        cell.birthRate = 14 * intensity
+        cell.birthRate = 14 * config.intensity
         cell.contents = contents
         cell.emissionRange = .pi
         cell.lifetime = 14

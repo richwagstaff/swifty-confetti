@@ -7,6 +7,7 @@ public enum ConfettiColor: String, CaseIterable {
 #if canImport(SwiftUI)
 import SwiftUI
 extension ConfettiColor {
+    @available(macOS 10.15, *)
     var color: Color {
         switch self {
         case .teal:

@@ -1,10 +1,3 @@
-//
-//  Confetti.swift
-//  Crossword
-//
-//  Created by Richard Wagstaff on 12/06/2023.
-//  Copyright © 2023 Richard Wagstaff. All rights reserved.
-//
 
 import SwiftUI
 #if canImport(UIKit)
@@ -29,12 +22,15 @@ public struct Confetti: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: ConfettiView, context: Context) {
-        uiView.intensity = intensity
-        uiView.shapes = ConfettiShape.allCases
-        uiView.images = []
+        // uiView.intensity = intensity
+        // uiView.shapes = ConfettiShape.allCases
+        // uiView.images = []
         // uiView.colors = [.red, .green, .blue]
-        print("Update ui view")
-        uiView.start(rate: rate, delay: delay, stopAfter: duration)
+        uiView.startConfetti(
+            rate: rate,
+            delay: delay,
+            stopAfter: duration
+        )
         /*
          if drop {
              if !uiView.isEmitting {
