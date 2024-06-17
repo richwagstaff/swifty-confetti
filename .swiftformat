@@ -1,0 +1,12 @@
+--binarygrouping none
+--decimalgrouping none
+--elseposition next-line
+--hexgrouping none
+--octalgrouping none
+--semicolons never
+--wrapparameters before-first
+--wraparguments before-first
+--wrapcollections before-first
+--stripunusedargs closure-only
+--elseposition next-line
+--guardposition next-line
